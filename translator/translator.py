@@ -16,7 +16,7 @@ class Translator:
 
         translated_dict = {}
 
-        for index, (_id, advice) in enumerate(self.data.items()):
+        for index, (_id, advice) in enumerate(self.data.items(), start=1):
             if index % 10 == 0:
                 time.sleep(60)
             pload = {
