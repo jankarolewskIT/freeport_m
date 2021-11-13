@@ -19,6 +19,14 @@ class UserAdvices:
         return True
 
     def create_advices(self, url: str) -> None:
+        """
+        Adds advices pulled from API to self.advices set.
+        If given advice already existed in self.advices
+        repeat the process
+
+        :param url: API's url
+        :return: None
+        """
         prev_len = len(self.advices)
         response = requests.request("GET", url).json().get("slip")
         self.advices.add((response.get("id"), response.get("advice")))
@@ -26,6 +34,10 @@ class UserAdvices:
             self.create_advices(url)
 
     def serialize_advice(self) -> dict:
+        """
+        Create a dict from self.advices set.
+        :return: dict
+        """
         for advice in self.advices:
             self.advices_dict[advice[0]] = advice[1]
 

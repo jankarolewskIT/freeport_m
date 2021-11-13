@@ -13,7 +13,11 @@ class Translator:
         self.target = target
 
     def translate(self) -> dict:
-
+        """
+        Method for creating a dictionary with translated advices pulled from UserAdvices class.
+        If there is more advices to translate then 10. Wait 1 min. This is done due to API response 429 Slow down
+        :return: dict of translated advices
+        """
         translated_dict = {}
 
         for index, (_id, advice) in enumerate(self.data.items(), start=1):
