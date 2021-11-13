@@ -24,3 +24,9 @@ class UserAdvices:
         self.advices.add((response.get("id"), response.get("advice")))
         if prev_len == len(self.advices):
             self.create_advices(url)
+
+    def serialize_advice(self) -> dict:
+        for advice in self.advices:
+            self.advices_dict[advice[0]] = advice[1]
+
+        return self.advices_dict
