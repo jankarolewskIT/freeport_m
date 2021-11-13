@@ -9,4 +9,4 @@
   
 3. ensure you have git isnatled 
 4. git clone <this_repo_url>
-5. 
+5. Give command: python freeport_m/main.py
